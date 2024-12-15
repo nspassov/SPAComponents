@@ -13,7 +13,7 @@ let package = Package(
             targets: ["SPAComponents"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/nspassov/SPAExtensions.git", branch: "main"),
+        .package(url: "ssh://git@github.com/nspassov/SPAExtensions.git", branch: "main"),
         .package(url: "https://github.com/SwiftKickMobile/SwiftMessages", from: "10.0.0"),
         .package(url: "https://github.com/ninjaprox/NVActivityIndicatorView.git", from: "5.2.0"),
         .package(url: "https://github.com/nspassov/fuse-swift", branch: "master"),
