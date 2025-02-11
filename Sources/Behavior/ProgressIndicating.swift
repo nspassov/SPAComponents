@@ -15,11 +15,21 @@ public struct ProgressIndicatorViewSUI: UIViewRepresentable {
         let view = ProgressIndicatorView()
         let indicatorTypes: [NVActivityIndicatorType] = [ .ballPulse, .ballPulseSync, .ballBeat ]
         view.progressIndicator.type = indicatorTypes.randomElement()!
+        view.backgroundColor = .clear
         return view
     }
     
     public func updateUIView(_ uiView: ProgressIndicatorView, context: Context) {
-        shouldShow ? uiView.progressIndicator.startAnimating() : uiView.progressIndicator.stopAnimating()
+        if shouldShow {
+            Task {
+                uiView.progressIndicator.startAnimating()
+            }
+        }
+        else {
+            Task {
+                uiView.progressIndicator.stopAnimating()
+            }
+        }
     }
 }
 
