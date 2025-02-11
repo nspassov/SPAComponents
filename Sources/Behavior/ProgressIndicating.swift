@@ -6,6 +6,9 @@ import NVActivityIndicatorView
 
 public struct ProgressIndicatorViewSUI: UIViewRepresentable {
     
+    public init() {
+    }
+    
     public func makeUIView(context: Context) -> ProgressIndicatorView {
         let view = ProgressIndicatorView()
         let indicatorTypes: [NVActivityIndicatorType] = [ .ballPulse, .ballPulseSync, .ballBeat ]
