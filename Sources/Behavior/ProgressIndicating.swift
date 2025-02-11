@@ -4,26 +4,25 @@ import SPAExtensions
 import NVActivityIndicatorView
 
 
-struct ProgressIndicatorViewSUI: UIViewRepresentable {
-    typealias UIViewType = ProgressIndicatorView
-  
-    func makeUIView(context: Context) -> ProgressIndicatorView {
+public struct ProgressIndicatorViewSUI: UIViewRepresentable {
+    
+    public func makeUIView(context: Context) -> ProgressIndicatorView {
         let view = ProgressIndicatorView()
         let indicatorTypes: [NVActivityIndicatorType] = [ .ballPulse, .ballPulseSync, .ballBeat ]
         view.progressIndicator.type = indicatorTypes.randomElement()!
         return view
     }
     
-    func updateUIView(_ uiView: ProgressIndicatorView, context: Context) {
+    public func updateUIView(_ uiView: ProgressIndicatorView, context: Context) {
         // Updates the state of the specified view controller with new information from SwiftUI.
     }
 }
 
 
-class ProgressIndicatorView: UIView {
+public class ProgressIndicatorView: UIView {
     let progressIndicator = NVActivityIndicatorView(frame: .zero)
     
-    init(text: NSAttributedString? = nil) {
+    public init(text: NSAttributedString? = nil) {
         super.init(frame: .zero)
         addSubview(progressIndicator, activateConstraints: [
             progressIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
