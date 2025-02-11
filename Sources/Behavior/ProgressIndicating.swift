@@ -1,6 +1,24 @@
 import UIKit
+import SwiftUI
 import SPAExtensions
 import NVActivityIndicatorView
+
+
+struct ProgressIndicatorViewSUI: UIViewRepresentable {
+    typealias UIViewType = ProgressIndicatorView
+  
+    func makeUIView(context: Context) -> ProgressIndicatorView {
+        let view = ProgressIndicatorView()
+        let indicatorTypes: [NVActivityIndicatorType] = [ .ballPulse, .ballPulseSync, .ballBeat ]
+        view.progressIndicator.type = indicatorTypes.randomElement()!
+        return view
+    }
+    
+    func updateUIView(_ uiView: ProgressIndicatorView, context: Context) {
+        // Updates the state of the specified view controller with new information from SwiftUI.
+    }
+}
+
 
 class ProgressIndicatorView: UIView {
     let progressIndicator = NVActivityIndicatorView(frame: .zero)
@@ -13,7 +31,7 @@ class ProgressIndicatorView: UIView {
             progressIndicator.widthAnchor.constraint(equalTo: progressIndicator.heightAnchor),
             progressIndicator.heightAnchor.constraint(equalToConstant: 60),
         ])
-        progressIndicator.color = .systemRed
+        progressIndicator.color = .tintColor
         self.backgroundColor = .lightGray.withAlphaComponent(0.3)
     }
     
