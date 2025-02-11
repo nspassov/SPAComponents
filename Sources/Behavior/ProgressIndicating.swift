@@ -5,8 +5,10 @@ import NVActivityIndicatorView
 
 
 public struct ProgressIndicatorViewSUI: UIViewRepresentable {
+    @Binding public var shouldShow: Bool
     
-    public init() {
+    public init(shouldShow: Binding<Bool>) {
+        self._shouldShow = shouldShow
     }
     
     public func makeUIView(context: Context) -> ProgressIndicatorView {
@@ -17,7 +19,7 @@ public struct ProgressIndicatorViewSUI: UIViewRepresentable {
     }
     
     public func updateUIView(_ uiView: ProgressIndicatorView, context: Context) {
-        // Updates the state of the specified view controller with new information from SwiftUI.
+        shouldShow ? uiView.progressIndicator.startAnimating() : uiView.progressIndicator.stopAnimating()
     }
 }
 
