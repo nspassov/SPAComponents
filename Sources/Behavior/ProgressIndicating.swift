@@ -8,9 +8,29 @@ import LoaderUI
 public struct ProgressIndicatorViewSUI: View {
     private let color: Color
     
+    public init(color: Color) {
+        self.color = color
+    }
+    
     public var body: some View {
         LineScale()
             .frame(width: 50, height: 50)
+            .foregroundStyle(color)
+    }
+}
+
+public struct ProgressIndicatorViewSUISmall: View {
+    private let color: Color
+    private let size: CGSize
+    
+    public init(color: Color, size: CGSize) {
+        self.color = color
+        self.size = size
+    }
+    
+    public var body: some View {
+        BallScale()
+            .frame(width: size.width, height: size.height)
             .foregroundStyle(color)
     }
 }
