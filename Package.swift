@@ -13,9 +13,10 @@ let package = Package(
             targets: ["SPAComponents"]),
     ],
     dependencies: [
-        .package(url: "ssh://git@github.com/nspassov/SPAExtensions.git", branch: "main"),
+        .package(url: "https://github.com/nspassov/SPAExtensions.git", branch: "main"),
         .package(url: "https://github.com/SwiftKickMobile/SwiftMessages", from: "10.0.0"),
         .package(url: "https://github.com/ninjaprox/NVActivityIndicatorView.git", from: "5.2.0"),
+        .package(url: "https://github.com/ninjaprox/LoaderUI", from: "0.2.1"),
         .package(url: "https://github.com/nspassov/fuse-swift", branch: "master"),
         .package(url: "https://github.com/cianru/ios-datepicker", from: "1.0.0")
     ],
@@ -28,6 +29,7 @@ let package = Package(
                 .product(name: "SPAExtensions", package: "SPAExtensions"),
                 .product(name: "SwiftMessages", package: "SwiftMessages"),
                 .product(name: "NVActivityIndicatorView", package: "NVActivityIndicatorView"),
+                .product(name: "LoaderUI", package: "LoaderUI"),
                 .product(name: "Fuse", package: "fuse-swift"),
                 .product(name: "DatePicker", package: "ios-datepicker"),
             ],

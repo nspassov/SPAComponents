@@ -2,34 +2,16 @@ import UIKit
 import SwiftUI
 import SPAExtensions
 import NVActivityIndicatorView
+import LoaderUI
 
 
-public struct ProgressIndicatorViewSUI: UIViewRepresentable {
-    @Binding public var shouldShow: Bool
+public struct ProgressIndicatorViewSUI: View {
+    private let color: Color
     
-    public init(shouldShow: Binding<Bool>) {
-        self._shouldShow = shouldShow
-    }
-    
-    public func makeUIView(context: Context) -> ProgressIndicatorView {
-        let view = ProgressIndicatorView()
-        let indicatorTypes: [NVActivityIndicatorType] = [ .ballPulse, .ballPulseSync, .ballBeat ]
-        view.progressIndicator.type = indicatorTypes.randomElement()!
-        view.backgroundColor = .clear
-        return view
-    }
-    
-    public func updateUIView(_ uiView: ProgressIndicatorView, context: Context) {
-        if shouldShow {
-            Task {
-                uiView.progressIndicator.startAnimating()
-            }
-        }
-        else {
-            Task {
-                uiView.progressIndicator.stopAnimating()
-            }
-        }
+    public var body: some View {
+        LineScale()
+            .frame(width: 50, height: 50)
+            .foregroundStyle(color)
     }
 }
 
