@@ -70,14 +70,14 @@ public enum CommonEvent {
         let message: String
         let kind: Kind
         let icon: UIImage?
-        let action: (@MainActor() async->())?
+        let action: (@MainActor () async -> Void)?
         
         public init(id: String = UUID().uuidString,
                     title: String,
                     message: String,
                     kind: Kind = .info,
                     icon: UIImage? = nil,
-                    action: (@MainActor() async->())? = nil) {
+                    action: (@MainActor () async -> Void)? = nil) {
             self.id = id
             self.title = title
             self.message = message
